@@ -22,9 +22,9 @@ int main() {
     cout << endl;
 
 
-    Solution1 solution2;
-    vector<int> result2 = solution1.twoSum(data, 9);
-    for (int i = 0; i < result1.size(); ++i) {
+    Solution2 solution2;
+    vector<int> result2 = solution2.twoSum(data, 9);
+    for (int i = 0; i < result2.size(); ++i) {
         cout << result2[i] << " ";
     }
     cout << endl;
