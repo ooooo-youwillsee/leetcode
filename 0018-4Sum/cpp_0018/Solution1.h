@@ -1,8 +1,8 @@
 //
 // Created by ooooo on 2019/11/1.
 //
-#ifndef CPP_0018_SOLUTOIN1_H
-#define CPP_0018_SOLUTOIN1_H
+#ifndef CPP_0018_SOLUTION1_H
+#define CPP_0018_SOLUTION1_H
 
 #include <iostream>
 #include <vector>
@@ -11,6 +11,9 @@
 
 using namespace std;
 
+/**
+ * 两层循环， 加上双指针
+ */
 class Solution {
 public:
     vector<vector<int>> fourSum(vector<int> &nums, int target) {
@@ -50,4 +53,4 @@ public:
     }
 };
 
-#endif //CPP_0018_SOLUTOIN1_H
+#endif //CPP_0018_SOLUTION1_H

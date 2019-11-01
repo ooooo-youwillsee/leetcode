@@ -3,4 +3,4 @@ project(cpp_0018)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(cpp_0018 main.cpp Solutoin1.h)
+add_executable(cpp_0018 main.cpp Solution1.h Solution2.h)

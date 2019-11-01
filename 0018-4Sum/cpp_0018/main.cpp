@@ -1,5 +1,6 @@
 #include <iostream>
-#include "Solutoin1.h"
+//#include "Solution1.h"
+#include "Solution2.h"
 
 int main() {
 
