@@ -3,4 +3,4 @@ project(cpp_0098)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(cpp_0098 main.cpp Solution1.h TreeNode.h)
+add_executable(cpp_0098 main.cpp Solution1.h TreeNode.h Solution2.h Solution3.h)
