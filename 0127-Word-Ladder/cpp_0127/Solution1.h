@@ -12,6 +12,9 @@
 
 using namespace std;
 
+/**
+ * note: 超时
+ */
 class Solution {
 
 public:
@@ -44,30 +47,33 @@ public:
             if (matched[i]) continue;
             string currentWord = wordList[i];
             if (bestMatch(currentWord, beginWord)) {
-                res.push_back(i);
+                if (currentWord == endWord) {
+                    res.insert(res.begin(), i);
+                } else {
+                    res.push_back(i);
+                }
             }
         }
         return res;
     }
 
 
-    bool dfs2(string beginWord, string endWord, vector<string> wordList, vector<bool> &matched, int count) {
+    void dfs(string beginWord, string endWord, vector<string> wordList, vector<bool> &matched, int count) {
         if (beginWord == endWord) {
             min = min < count ? min : count;
-            return true;
+            return;
         }
         vector<int> indexList = findBestMatch(beginWord, endWord, wordList, matched);
         for (int i = 0; i < indexList.size(); ++i) {
             matched[indexList[i]] = true;
-            dfs2(wordList[indexList[i]], endWord, wordList, matched, count + 1);
+            dfs(wordList[indexList[i]], endWord, wordList, matched, count + 1);
             matched[indexList[i]] = false;
         }
-        return false;
     }
 
     int ladderLength(string beginWord, string endWord, vector<string> &wordList) {
         vector<bool> matched(wordList.size(), false);
-        dfs2(beginWord, endWord, wordList, matched, 1);
+        dfs(beginWord, endWord, wordList, matched, 1);
         return min == INT_MAX ? 0 : min;
     }
 
