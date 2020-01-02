@@ -19,34 +19,29 @@ public:
         q.push(root);
         prevSums.push({});
         while (!q.empty()) {
-            int size = q.size();
+            vector<int> temp;
+            TreeNode *node = q.front();
+            vector<int> sums = prevSums.front();
+            q.pop();
+            prevSums.pop();
 
-            while (size--) {
-                vector<int> temp;
-                TreeNode *node = q.front();
-                vector<int> sums = prevSums.front();
-                q.pop();
-                prevSums.pop();
+            if (node->val == sum) count++;
+            temp.push_back(node->val);
 
-                if (node->val == sum) count++;
-                temp.push_back(node->val);
-
-                for (auto item: sums) {
-                    int num = item + node->val;
-                    if (num == sum) count++;
-                    temp.push_back(num);
-                }
-
-                if (node->left) {
-                    q.push(node->left);
-                    prevSums.push(temp);
-                }
-                if (node->right) {
-                    q.push(node->right);
-                    prevSums.push(temp);
-                }
+            for (auto item: sums) {
+                int num = item + node->val;
+                if (num == sum) count++;
+                temp.push_back(num);
             }
 
+            if (node->left) {
+                q.push(node->left);
+                prevSums.push(temp);
+            }
+            if (node->right) {
+                q.push(node->right);
+                prevSums.push(temp);
+            }
         }
         return count;
     }
