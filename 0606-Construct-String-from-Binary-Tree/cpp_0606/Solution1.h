@@ -6,6 +6,9 @@
 
 #include "TreeNode.h"
 
+/**
+ * 字符串拼接有点低效， 后序遍历
+ */
 class Solution {
 public:
     string tree2str(TreeNode *t) {
