@@ -10,40 +10,51 @@
 
 using namespace std;
 
-
 class Solution {
-public:
+ public:
 
-    vector<string> split(string s, string sep) {
-        s += sep;
-        int i = s.find(sep);
-        vector<string> res;
-        int j = 0;
-        while (i != -1) {
-            res.push_back(s.substr(j, i - j));
-            j = i + 1;
-            i = s.find(sep, i + 1);
-        }
-        return res;
-    }
+  vector<string> split2(string s, string sep) {
+      vector<string> res;
+      int i = 0;
+      s += sep;
+      int j = s.find_first_of(sep, i);
+      while (j != -1) {
+          res.push_back(s.substr(i, j - i));
+          i = j + 1;
+          j = s.find_first_of(sep, j + 1);
+      }
+      return res;
+  }
 
+  vector<string> split(string s, string sep) {
+      s += sep;
+      int i = s.find(sep);
+      vector<string> res;
+      int j = 0;
+      while (i != -1) {
+          res.push_back(s.substr(j, i - j));
+          j = i + 1;
+          i = s.find(sep, i + 1);
+      }
+      return res;
+  }
 
-    bool wordPattern(string pattern, string str) {
-        vector<string> strs = split(str, " ");
-        if (strs.size() != pattern.size()) return false;
-        unordered_map<char, string> m1;
-        unordered_map<string, char> m2;
-        for (int i = 0; i < pattern.size(); ++i) {
-            if (m1.count(pattern[i]) && m1[pattern[i]] != strs[i]) return false;
-            else {
-                if (m2.count(strs[i]) && m2[strs[i]] != pattern[i]) return false;
-                m1[pattern[i]] = strs[i];
-                m2[strs[i]] = pattern[i];
-            }
-        }
+  bool wordPattern(string pattern, string str) {
+      vector<string> strs = split(str, " ");
+      if (strs.size() != pattern.size()) return false;
+      unordered_map<char, string> m1;
+      unordered_map<string, char> m2;
+      for (int i = 0; i < pattern.size(); ++i) {
+          if (m1.count(pattern[i]) && m1[pattern[i]] != strs[i]) return false;
+          else {
+              if (m2.count(strs[i]) && m2[strs[i]] != pattern[i]) return false;
+              m1[pattern[i]] = strs[i];
+              m2[strs[i]] = pattern[i];
+          }
+      }
 
-        return true;
-    }
+      return true;
+  }
 
 };
 
