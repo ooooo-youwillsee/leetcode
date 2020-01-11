@@ -1,6 +1,6 @@
 #include <iostream>
 //#include "Solution1.h"
-#include "Solution1.h"
+#include "Solution2.h"
 
 void test(string secret, string guess) {
   Solution s;
