@@ -21,6 +21,7 @@ class Solution {
     for (auto &entry: m) {
       j += entry.second / 2;
       if (entry.second % 2 == 1) {
+        // 有多余的置为1
         i = 1;
       }
     }
