@@ -14,14 +14,13 @@ class Solution {
 
   void dfs(ListNode *node) {
     if (!node) return;
-    ans.emplace_back(node->val);
     dfs(node->next);
+    ans.emplace_back(node->val);
   }
 
   vector<int> ans;
   vector<int> reversePrint(ListNode *head) {
     dfs(head);
-    reverse(ans.begin(), ans.end());
     return ans;
   }
 };
