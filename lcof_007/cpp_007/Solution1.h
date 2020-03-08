@@ -25,8 +25,8 @@ class Solution {
   int i = 0;
 
   TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
-    for (int i = 0, len = inorder.size(); i < len; ++i) {
-      in_map[inorder[i]] = i;
+    for (int j = 0, len = inorder.size(); j < len; ++j) {
+      in_map[inorder[j]] = j;
     }
     this->preorder = preorder;
     return dfs(nullptr, 0, inorder.size() - 1);
