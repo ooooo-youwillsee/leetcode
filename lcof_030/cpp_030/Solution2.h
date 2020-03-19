@@ -9,6 +9,9 @@
 
 using namespace std;
 
+/**
+ * 使用一个辅助栈：最小栈
+ */
 class MinStack {
 
  private:
