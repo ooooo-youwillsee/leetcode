@@ -2,6 +2,7 @@ package com.ooooo;
 
 public class Solution2 {
 
+
     public boolean isUnique(String astr) {
         int sum = 0;
         for (int i = 0; i < astr.length(); i++) {
