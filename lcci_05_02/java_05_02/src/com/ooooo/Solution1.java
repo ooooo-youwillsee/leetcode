@@ -9,9 +9,7 @@ class Solution1 {
       if (num >= 1) {
         ans.append("1");
         num -= 1;
-      } else {
-        ans.append("0");
-      }
+      } else ans.append("0");
       count--;
     }
     return num != 0 ? "ERROR" : ans.toString();
