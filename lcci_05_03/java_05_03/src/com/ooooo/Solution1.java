@@ -21,7 +21,7 @@ class Solution1 {
     for (Integer index_0 : bit_0) {
       bits.setCharAt(index_0,'1');
       int count = Arrays.stream(bits.toString().split("0"))
-        .map(String::length).max(Integer::compareTo).get();
+        .map(String::length).max(Integer::compareTo).orElse(0);
       ans = Math.max(ans, count);
       bits.setCharAt(index_0,'0');
     }
