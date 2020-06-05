@@ -8,7 +8,7 @@ class Solution1 {
 
   private void dfs(int[][] image, int i, int j) {
     if (i < 0 || j < 0 || i >= image.length || j >= image[0].length
-        || image[i][j] != srcColor)
+        || image[i][j] != oldColor)
       return;
     image[i][j] = newColor;
     for (int[] offset : dx_dy) {
@@ -16,12 +16,12 @@ class Solution1 {
     }
   }
 
-  private int srcColor = 0, newColor = 0;
+  private int oldColor = 0, newColor = 0;
 
   public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
-    this.srcColor = image[sr][sc];
+    this.oldColor = image[sr][sc];
     this.newColor = newColor;
-    if (this.srcColor == this.newColor) return image;
+    if (this.oldColor == this.newColor) return image;
     dfs(image, sr, sc);
     return image;
   }
