@@ -1,5 +1,7 @@
 package com.ooooo;
 
+import java.util.function.Consumer;
+
 class Solution1 {
   
   public String sortString(String s) {
@@ -9,18 +11,19 @@ class Solution1 {
     }
     
     StringBuilder sb = new StringBuilder();
+    Consumer<Integer> f = i -> {
+      if (letters[i] > 0) {
+        sb.append((char) (97 + i));
+        letters[i]--;
+      }
+    };
+    
     while (sb.length() < s.length()) {
       for (int i = 0; i < 26; i++) {
-        if (letters[i] > 0) {
-          sb.append((char) (97 + i));
-          letters[i]--;
-        }
+        f.accept(i);
       }
       for (int i = 25; i >= 0; i--) {
-        if (letters[i] > 0) {
-          sb.append((char) (97 + i));
-          letters[i]--;
-        }
+        f.accept(i);
       }
     }
     return sb.toString();
