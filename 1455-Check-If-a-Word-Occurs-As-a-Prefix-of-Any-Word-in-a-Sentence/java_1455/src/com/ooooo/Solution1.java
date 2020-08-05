@@ -7,16 +7,7 @@ class Solution1 {
     for (int i = 0; i < strs.length; i++) {
       String str = strs[i];
       if (str.length() < searchWord.length()) continue;
-      boolean find = true;
-      for (int k = 0; k < searchWord.length(); k++) {
-        if (str.charAt(k) != searchWord.charAt(k)) {
-          find = false;
-          break;
-        }
-      }
-      if (find) {
-        return i + 1;
-      }
+      if (str.indexOf(searchWord) == 0) return i + 1;
     }
     return -1;
   }
