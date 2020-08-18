@@ -1,8 +1,5 @@
 package com.ooooo;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * @author leizhijie
  * @since 2020/8/17 20:48
@@ -27,7 +24,7 @@ public class Solution2 {
   }
   
   private static void test(TreeNode root) {
-    Solution1 solution = new Solution1();
+    Solution2 solution = new Solution2();
     boolean balanced = solution.isBalanced(root);
     System.out.println(balanced);
   }
