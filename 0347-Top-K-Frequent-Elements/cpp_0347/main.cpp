@@ -1,5 +1,6 @@
 #include <iostream>
-#include "Solution1.h"
+//#include "Solution1.h"
+#include "Solution2.h"
 
 void test(vector<int> nums, int k) {
   Solution solution;

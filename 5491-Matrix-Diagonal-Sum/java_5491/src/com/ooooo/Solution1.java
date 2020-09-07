@@ -4,7 +4,7 @@ package com.ooooo;
  * @author leizhijie
  * @since 2020/9/5 22:55
  */
-public class SolutIon1 {
+public class Solution1 {
 	
 	public int diagonalSum(int[][] mat) {
 		if (mat.length == 0) return 0;
