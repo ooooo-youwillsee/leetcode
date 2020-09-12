@@ -5,6 +5,8 @@
 #define CPP_0637_TREENODE_H
 
 #include <iostream>
+#include <vector>
+#include <queue>
 
 using namespace std;
 
