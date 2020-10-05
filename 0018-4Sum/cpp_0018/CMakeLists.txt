@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.16)
 project(cpp_0018)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
-add_executable(cpp_0018 main.cpp Solution1.h Solution2.h)
+add_executable(cpp_0018 main.cpp Solution1.h Solution2.h Solution3.h)
