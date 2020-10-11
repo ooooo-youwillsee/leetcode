@@ -11,7 +11,7 @@ class Solution:
         if total % 2 != 0:
             return False
         total //= 2
-        dp = [[False for _ in range(total + 1)] for _ in range(len(nums))]
+        dp = [[False for _ in range(total + 1)] for _ in range(len(nums) + 1)]
         dp[0][0] = True
         for i, num in enumerate(nums):
             for j in range(total + 1):
