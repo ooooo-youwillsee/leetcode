@@ -19,6 +19,7 @@ class Solution {
 		priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> q;
 		int ans = 0;
 		for (int i = 0; i < n; ++i) {
+			// 天数包括当天
 			q.push(make_pair(i + days[i] - 1, apples[i]));
 			while (!q.empty()) {
 				pair<int, int> x = q.top();
