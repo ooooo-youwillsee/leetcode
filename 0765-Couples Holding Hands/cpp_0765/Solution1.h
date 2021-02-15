@@ -12,6 +12,8 @@
 using namespace std;
 
 // dfs , 可以优化
+// 理解最重要的一点 比如 [0,x,1,z]， 要使0，1在一起的话，就是[0,1,x,z]或者[z,x,1,0]
+// 上述的这两种情况，x,z只是相对位置发生了改变，而实际的交换次数并没有改变
 class Solution {
  public:
 	int ans = 0;
