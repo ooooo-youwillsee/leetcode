@@ -39,5 +39,6 @@ class Solution {
 		}
 		return ans;
 	}
+};
 
 #endif //CPP_1646__SOLUTION1_H_
