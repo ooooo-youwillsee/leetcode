@@ -15,34 +15,29 @@ using namespace std;
  *
  * 背包问题
  *
- * j 最小值为 -sum,所以 j-nums[i] => 最小值为 -sum-nums[i]
  */
 class Solution {
  public:
-
-  int findTargetSumWays(vector<int> &nums, int S) {
-    int n = nums.size(), sum = accumulate(nums.begin(), nums.end(), 0);
-    int t = 2 * sum + 1;
-    // 绝对值范围超过了sum的绝对值范围则无法得到
-    if (S > sum) return 0;
-    vector<vector<int>> dp(n, vector<int>(t));
-    if (nums[0] == 0) {
-      // +0 或者 -0
-      dp[0][sum] = 2;
-    } else {
-      dp[0][-nums[0] + sum] = 1;
-      dp[0][+nums[0] + sum] = 1;
-    }
-
-    for (int i = 1; i < n; ++i) {
-      for (int j = 0; j < t; ++j) {
-        // j 加上偏移量 sum
-        int l = (j - nums[i]) >= 0 ? j - nums[i] : 0;
-        int r = (j + nums[i]) < t ? j + nums[i] : 0;
-        dp[i][j] = dp[i - 1][l] + dp[i - 1][r];
-      }
-    }
-    return dp[n - 1][S + sum];
-  }
+	int findTargetSumWays(vector<int>& nums, int target) {
+		int n = nums.size();
+		int sum = accumulate(nums.begin(), nums.end(),  0);
+		if (target > sum) return 0;
+		int dp[n+1][2*sum+1];
+		memset(dp, 0, sizeof(dp));
+		dp[0][sum] = 1; // 组成0的有一种方式
+		// 0 -> sum-1 负数
+		// sum+1 -> 2*sum +1 正数
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < 2*sum+1; j++) {
+				if (j - nums[i] >= 0) {
+					dp[i+1][j]+= dp[i][j - nums[i]];
+				}
+				if (j + nums[i] < 2*sum +1) {
+					dp[i+1][j]+= dp[i][j + nums[i]];
+				}
+			}
+		}
+		return dp[n][sum + target];
+	}
 };
 #endif //CPP_0494__SOLUTION2_H_
