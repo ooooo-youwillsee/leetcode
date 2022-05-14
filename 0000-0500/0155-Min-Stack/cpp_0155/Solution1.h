@@ -10,41 +10,35 @@
 
 using namespace std;
 
+// minStack and stack are in one-to-one correspondence
 class MinStack {
 
-private:
-    vector<int> data;
-    int min = INT_MAX;
-public:
-    /** initialize your data structure here. */
-    MinStack() {
-        min = INT_MAX;
-        data.clear();
-    }
+ private:
 
-    void push(int x) {
-        min = x < min ? x : min;
-        data.push_back(x);
-    }
+	stack<int> stack, minStack;
 
-    void pop() {
-        int v = top();
-        data.erase(end(data) - 1);
-        if (v == min) {
-            min = INT_MAX;
-            for (auto num : data) {
-                min = min < num ? min : num;
-            }
-        }
-    }
+ public:
 
-    int top() {
-        return data[data.size() - 1];
-    }
+	MinStack() {
+		minStack.push(INT_MIN);
+	}
 
-    int getMin() {
-        return min;
-    }
+	void push(int val) {
+		stack.push(val);
+		minStack.push(min(minStack.top(), val));
+	}
+
+	void pop() {
+		stack.pop();
+	}
+
+	int top() {
+		return stack.top();
+	}
+
+	int getMin() {
+		return minStack.top();
+	}
 };
 
 #endif //CPP_0155_SOLUTION1_H
